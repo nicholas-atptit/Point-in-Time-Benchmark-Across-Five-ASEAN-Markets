@@ -1,0 +1,40 @@
+{
+  "architecture": "AMD64",
+  "bootstrap_seed": 271828,
+  "created_at_utc": "2026-08-03T00:00:27.899173+00:00",
+  "environment_variables_used": {
+    "PYTHONHASHSEED": null,
+    "TZ": null
+  },
+  "experiment_id": "ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8_1",
+  "external_data_requirements": [
+    "all V7 and V8 portable-manifest records",
+    "provider-native raw OHLC already recorded in V8 evidence caches",
+    "FBM KLCI source documents/extractions enumerated in V8.1 registry"
+  ],
+  "external_retrieval_requires_explicit_flag": true,
+  "git_repository": {
+    "baseline_v8_commit": "a3d737d2688e15fbcf67b686fab52884dd1c0e75",
+    "branch_at_capture": "release/pit-v8.1-hardening",
+    "final_tag": "pit-five-market-v8.1-final",
+    "release_content_commit": "recorded by the release envelope after content commit; self-referential commit hashes cannot be embedded in that commit"
+  },
+  "locale": "LC_COLLATE=C;LC_CTYPE=English_United States.1252;LC_MONETARY=C;LC_NUMERIC=C;LC_TIME=C",
+  "operating_system": "Windows-11-10.0.26200-SP0",
+  "package_count": 192,
+  "package_lock_path": "requirements-v8.1-lock.txt",
+  "package_lock_sha256": "e9ba62b5205f4e27d07c00f7e7f6143a732a5502881dd31529000e8cf91c82ce",
+  "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "python_implementation": "CPython",
+  "python_version": "3.13.5",
+  "random_seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "timezone": "Asia/Saigon",
+  "timezone_runtime_source": "repository execution context",
+  "validation_download_policy": "NEVER_DOWNLOAD"
+}

@@ -1,0 +1,5 @@
+﻿model_id,Model,delta_brier_score_current_minus_pit_full_support,delta_brier_score_current_minus_pit_common_support,descriptive_support_composition_component_brier_score,common_support_count
+historical_class_probability,Historical probability,0.0001887166474588,-0.0001235665702465,0.0003122832177053,85948.0
+lightgbm,LightGBM,-1.852927836396012e-05,-0.0002807129496847,0.0002621836713208,85948.0
+logistic_regression,Logistic regression,-0.0001008883669288,-0.0003708673460673,0.0002699789791384,85948.0
+random_forest,Random forest,-0.0005314393146661,-0.0004019499927007,-0.0001294893219654,85948.0

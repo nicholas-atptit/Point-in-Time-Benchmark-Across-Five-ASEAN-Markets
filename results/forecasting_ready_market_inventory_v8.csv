@@ -1,0 +1,6 @@
+market,index_id,validated_pit_membership,validated_raw_ohlc,pit_intervals,data_ready_intervals,valid_continuous_folds,oos_trading_dates,seed_collapsed_predictions,valid_pit_model_cells,valid_all_arm_model_cells,invalid_cells,forecasting_inference_valid,status
+Indonesia,IDX30,True,True,26,2,4,79,28120,4,12,0,True,MODEL_VALID
+Thailand,SET50,True,True,12,2,12,240,141120,4,12,0,True,MODEL_VALID
+Vietnam,VN30,True,True,21,2,9,180,63840,4,12,0,True,MODEL_VALID
+Philippines,PSEI,True,True,22,9,45,900,270900,4,12,0,True,MODEL_VALID
+Malaysia,FBM_KLCI,True,True,13,13,95,1900,635216,4,12,0,True,MODEL_VALID

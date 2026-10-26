@@ -1,0 +1,12 @@
+# Limitations and unresolved evidence
+1. Exact raw/provider and record-level redistribution rights remain unestablished. Public end-to-end observation-level reproduction is therefore `BLOCKED_BY_DATA_RIGHTS`.
+2. The historical tagged archive omitted model/feature helpers, terminal rosters, a V6 manifest and quarantine files required by broader tests. Recovered dependencies are recorded; the archive alone is not a complete rebuild environment.
+3. Two original historical tests remain absent: `tests/point_in_time/test_pit_multimarket_forecasting_v6.py` and `tests/test_manifest_portability_v6.py`. The broader historical immutability gate remains failed; no test is recreated from its expected hash.
+4. The original December 2017 Malaysian anchor PDF remains absent. A factual extraction and reference survive. The June 2018 membership event remains Tier 3 attributed evidence. Effective-date consistency is not proof that every original announcement was available at the historical decision time.
+5. Malaysia Airports code 5014 has no joined price observations for 493 active member-days; no imputation was applied. Missing/delisted securities and available-history selection can still condition evaluation.
+6. IDX30 has only 79 OOS dates; five-market block-40 inference is unavailable. The four-market historical-probability result is exploratory and cannot replace the primary five-market conclusion.
+7. Calibration intercept/slope estimability fails for some cells. Models, folds, dates and seeds are not independent markets. Membership-ready coverage is selected rather than a complete historical all-security census.
+8. Targets are next observed same-security bars with gaps up to 14 calendar days. Raw OHLC retains corporate-action discontinuities; results are not adjusted-return, total-return, causal, tradable-profit or equivalence evidence.
+9. Stored-output and inference reproduction does not establish a complete independent re-acquisition and retraining. Bounded model-refitting evidence is reported separately.
+10. The manuscript uses the term preregistered, but this audit authenticated no independent timestamped preregistration or prospective chronology. The record establishes a frozen protocol, not prospective confirmation.
+11. A public reuse license remains undecided. Manuscript DOCX/PDF and administrative declarations are outside this supporting-artifact release. No DOI, journal acceptance, author final approval or journal-submission readiness is claimed.

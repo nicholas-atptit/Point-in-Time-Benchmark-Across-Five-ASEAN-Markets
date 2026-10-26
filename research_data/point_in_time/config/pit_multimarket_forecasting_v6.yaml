@@ -1,0 +1,154 @@
+experiment_id: SELECTED_ASEAN_PIT_PARTIAL_INTERVAL_BENCHMARK_V6
+study_label: SELECTED_ASEAN_PIT_PARTIAL_INTERVAL_BENCHMARK_V6
+experiment_version: v6
+code_commit_hash: NOT_A_GIT_WORKTREE
+data_version: pit-data-v5
+membership_version: pit-membership-v5
+snapshot_version: pit-universe-v5
+price_version: pit-data-v5
+manifest_version: manifest-portability-v6.0.0
+eligibility_version: pit-interval-eligibility-v5
+eligible_interval_ids:
+- ELG-1b3372182eb78ecc5e01f068
+- ELG-36af27305d66fc9518825631
+- ELG-80b1805e1091f49ef3c608e0
+- ELG-821ae0295fa8fe4b17a24bc4
+- ELG-a861b7c05b53a15494c96fba
+- ELG-b50b9c6485d40990a0607f6b
+included_markets:
+- IDX30
+- SET50
+- VN30
+excluded_markets:
+- FBM_KLCI
+- PSEI
+exclusion_reasons:
+  PSEI: no V5 market-level interval passes eligible_for_forecasting
+  FBM_KLCI: no V5 market-level interval passes eligible_for_forecasting
+universe_arms:
+  pit: POINT_IN_TIME
+  current: CURRENT_2026_APPLIED_BACKWARD
+  intersection: PIT_CURRENT_INTERSECTION_CONTROL
+feature_registry_hash: b32df88643ec275a9906e7e9715125de42c7c602b05131d66d1533144220f5a4
+feature_version: raw_ohlc_registry_d16ba71d917fc1f9ce020345
+feature_columns:
+- lagged_open_close_return
+- lagged_close_close_return
+- lagged_overnight_gap
+- lagged_high_low_range
+- lagged_rolling_volatility_5
+- lagged_momentum_5
+- lagged_downside_rate_5
+- lagged_market_return
+- lagged_market_breadth
+feature_lookback: 5
+target_definition:
+  name: next-session open-to-close direction
+  return: target_close / target_open - 1
+  direction: 1 if target_return > 0 else 0
+  next_observation: next valid same-security observation
+  max_gap_calendar_days: 14
+  adjusted_close_allowed: false
+  volume_allowed: false
+  imputation_allowed: false
+model_registry:
+  historical_class_probability:
+    family: historical_class_probability
+    module: information_set_baseline
+    parameters: &id001
+      history: matured_labels_before_calibration_start
+      fallback_probability: 0.5
+  logistic_regression:
+    family: logistic_regression
+    module: papers.paper_03_raw_ohlc_forecasting.src.models.machine_learning.logistic_regression
+    parameters: &id002
+      C: 1.0
+      max_iter: 500
+  random_forest:
+    family: random_forest
+    module: papers.paper_04_regime_transfer_reliability.src.models.machine_learning.random_forest
+    parameters: &id003
+      n_estimators: 60
+      max_depth: 8
+      min_samples_leaf: 20
+      max_features: sqrt
+      max_samples: 0.8
+      class_weight: balanced_subsample
+      n_jobs: 1
+  lightgbm:
+    family: lightgbm
+    module: papers.paper_03_raw_ohlc_forecasting.src.models.machine_learning.lightgbm
+    parameters: &id004
+      n_estimators: 50
+      learning_rate: 0.04
+      num_leaves: 15
+      max_depth: 4
+      min_child_samples: 30
+      subsample: 0.9
+      colsample_bytree: 0.9
+      n_jobs: 1
+      verbosity: -1
+hyperparameters:
+  historical_class_probability: *id001
+  logistic_regression: *id002
+  random_forest: *id003
+  lightgbm: *id004
+seed_registry:
+- 11
+- 23
+- 37
+- 53
+- 71
+rolling_origin_protocol:
+  initial_training_dates: 60
+  calibration_dates: 20
+  test_block_dates: 20
+  step_dates: 20
+  training_window: expanding
+  labels_must_mature_before_fit: true
+minimum_sample_gates:
+  valid_folds: 2
+  oos_trading_dates: 40
+  oos_security_date_predictions: 800
+  both_target_classes_train: true
+  both_target_classes_test: true
+primary_metric: brier_score
+secondary_metrics:
+- log_loss
+- balanced_accuracy
+- calibration_intercept
+- calibration_slope
+- coverage
+- model_rank
+aggregation_rules:
+  level_1: equal_security_mean_within_date
+  level_2: equal_date_mean_within_interval
+  level_3: equal_interval_mean_within_market
+  level_4: equal_market_mean_selected_market_macro
+  security_weighted: secondary_robustness_only
+bootstrap_rules:
+  method: paired_moving_block_bootstrap_common_trading_dates
+  samples: 500
+  seed: 271828
+  primary_block_length: 20
+  robustness_block_lengths:
+  - 10
+  - 40
+multiple_testing_family: Benjamini-Hochberg within block length across all valid interval-model
+  current-minus-PIT comparisons
+result_classification_rules:
+  SUPPORTED_CURRENT_PIT_DIFFERENCE: BH-adjusted p <= 0.05 and 95% CI excludes zero
+  NO_SUPPORTED_DIFFERENCE: valid information and 95% CI includes zero; not equivalence
+  INSUFFICIENT_INFORMATION: cell fails any minimum validity gate
+  HETEROGENEOUS_ACROSS_MARKETS: valid market directions disagree and heterogeneity
+    is material
+package_versions:
+  python: 3.13.5
+  numpy: 2.2.6
+  pandas: 2.3.3
+  scipy: 1.17.1
+  sklearn: 1.8.0
+  lightgbm: 4.6.0
+  pyarrow: 23.0.1
+frozen_on: '2026-08-02'
+correction_policy: any change requires V6.1 or later experiment ID

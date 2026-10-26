@@ -1,0 +1,22 @@
+﻿Analysis,Scope,Model,Estimate or range,Inference/status,Interpretive boundary
+Block length 40,Predefined five-market macro,All four models,not estimable,INSUFFICIENT_INFORMATION,IDX30 cannot support block 40; no five-market estimate exists.
+Block length 10,Five-market full support,Historical probability,+0.00018872,NO_SUPPORTED_DIFFERENCE,Exploratory block-length sensitivity.
+Block length 40,Four-market available-market macro,Historical probability,+0.00027648,SUPPORTED_CURRENT_PIT_DIFFERENCE,IDX30 unavailable; not a five-market result.
+Alternative aggregation,Reported full-support rules,Historical probability,"[+0.00002908, +0.00027648]",DESCRIPTIVE_SENSITIVITY,Point-estimate range; no family-wide significance claim.
+Leave one market out,Four markets per omission,Historical probability,"[+0.00009130, +0.00023144]",DESCRIPTIVE_SENSITIVITY,Country omissions do not identify country effects.
+Leave one interval out,One ready interval omitted,Historical probability,"[-0.00004353, +0.00042096]",DESCRIPTIVE_SENSITIVITY,Point-estimate range only.
+Block length 10,Five-market full support,LightGBM,-0.00001853,NO_SUPPORTED_DIFFERENCE,Exploratory block-length sensitivity.
+Block length 40,Four-market available-market macro,LightGBM,-0.00006700,NO_SUPPORTED_DIFFERENCE,IDX30 unavailable; not a five-market result.
+Alternative aggregation,Reported full-support rules,LightGBM,"[-0.00021219, +0.00000150]",DESCRIPTIVE_SENSITIVITY,Point-estimate range; no family-wide significance claim.
+Leave one market out,Four markets per omission,LightGBM,"[-0.00032850, +0.00035221]",DESCRIPTIVE_SENSITIVITY,Country omissions do not identify country effects.
+Leave one interval out,One ready interval omitted,LightGBM,"[-0.00050032, +0.00046326]",DESCRIPTIVE_SENSITIVITY,Point-estimate range only.
+Block length 10,Five-market full support,Logistic regression,-0.00010089,NO_SUPPORTED_DIFFERENCE,Exploratory block-length sensitivity.
+Block length 40,Four-market available-market macro,Logistic regression,+0.00001874,NO_SUPPORTED_DIFFERENCE,IDX30 unavailable; not a five-market result.
+Alternative aggregation,Reported full-support rules,Logistic regression,"[-0.00011591, +0.00003965]",DESCRIPTIVE_SENSITIVITY,Point-estimate range; no family-wide significance claim.
+Leave one market out,Four markets per omission,Logistic regression,"[-0.00015462, -0.00000508]",DESCRIPTIVE_SENSITIVITY,Country omissions do not identify country effects.
+Leave one interval out,One ready interval omitted,Logistic regression,"[-0.00044631, +0.00024453]",DESCRIPTIVE_SENSITIVITY,Point-estimate range only.
+Block length 10,Five-market full support,Random forest,-0.00053144,NO_SUPPORTED_DIFFERENCE,Exploratory block-length sensitivity.
+Block length 40,Four-market available-market macro,Random forest,-0.00066388,NO_SUPPORTED_DIFFERENCE,IDX30 unavailable; not a five-market result. Random-forest CI excludes zero but the BH joint gate is not passed.
+Alternative aggregation,Reported full-support rules,Random forest,"[-0.00066388, -0.00028742]",DESCRIPTIVE_SENSITIVITY,Point-estimate range; no family-wide significance claim.
+Leave one market out,Four markets per omission,Random forest,"[-0.00072484, -0.00043720]",DESCRIPTIVE_SENSITIVITY,Country omissions do not identify country effects.
+Leave one interval out,One ready interval omitted,Random forest,"[-0.00099476, -0.00006812]",DESCRIPTIVE_SENSITIVITY,Point-estimate range only.

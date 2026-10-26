@@ -1,0 +1,15 @@
+{
+  "audit_date": "2026-10-26",
+  "analytical_tag": "pit-five-market-v8.1.1-final",
+  "analytical_commit": "8777babb77b0666604923d35d3f490462a040fd6",
+  "overall_reproducibility": "PARTIAL_MATCH",
+  "public_observation_level_reproduction": "BLOCKED_BY_DATA_RIGHTS",
+  "original_suite_passed": 74,
+  "original_suite_failed": 1,
+  "model_refit_executions": 300,
+  "model_refit_prediction_cells": 190800,
+  "full_training_rerun": false,
+  "independent_preregistration_verified": false,
+  "raw_data_published": false,
+  "license_assigned": false
+}

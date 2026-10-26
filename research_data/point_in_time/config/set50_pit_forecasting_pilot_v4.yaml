@@ -1,0 +1,164 @@
+experiment:
+  experiment_id: SET50_PIT_FORECASTING_PILOT_V4_20260802
+  experiment_version: v4
+  status: LOCKED_PRE_EXECUTION
+  correction_policy: CREATE_NEW_EXPERIMENT_VERSION_DO_NOT_EDIT_AFTER_FINAL_EVALUATION
+  date_semantics: exchange-local trading date stored as a naive ISO calendar date
+  code_commit_hash: NO_GIT_REPOSITORY
+  code_sha256: 396995a44660cd181f41e56ab3049c2828d52390ea69fba837ae4453692e5a7c
+inputs:
+  data_versions:
+    membership: pit-membership-v3
+    snapshot: pit-universe-v3
+    price: pit-data-v3
+  checksums:
+    membership_v3: d7c22be4ce8bb4a6bc923525ce62b7a638bb0ed4d9de7cd31458b4fcada5ffca
+    pit_snapshot_v3: 7cb2d41c2652d5d262f0737f68fc6029c85f91a052b329eb0d5bee6a1faff842
+    pit_raw_panel_v3: 61ef9035ada06abc7dc6b68986fb19b5933da107ea49ce96a15637344f8e1e71
+    current_panel_v3: d7da0ac497da5740fc19362573af1e0889c6bcaf982e13a2ca244b2bb24d6115
+    historical_raw_ohlc_v3: 58f3310ac2ca83e5c65591f0ed470f4f7d1e869cf315df9a52e196aaefdeae82
+    eligibility_v3: a31f837a18971f74f1690c6067cd895a44035a88702def215275bf4c0bb25fcb
+    current_set50_config: 02398edf6b7861dbf6a1fe62557614b59b4fa47fff4b4a6cbb3ff551bcb17bdb
+    feature_source: b32df88643ec275a9906e7e9715125de42c7c602b05131d66d1533144220f5a4
+  source_mode: READ_ONLY_VALIDATED_V3_ARTIFACTS
+scope:
+  market: Thailand
+  index_id: SET50
+  eligible_interval_start: '2025-07-01'
+  eligible_interval_end_exclusive: '2026-07-01'
+  full_target_period_ineligible: true
+universe_arms:
+  pit:
+    universe_semantics: POINT_IN_TIME
+    role: primary
+  current:
+    universe_semantics: CURRENT_2026_APPLIED_BACKWARD
+    role: matched comparator
+  intersection:
+    universe_semantics: PIT_CURRENT_INTERSECTION_CONTROL
+    role: diagnostic intersection control
+feature_registry:
+  version: raw_ohlc_registry_d16ba71d917fc1f9ce020345
+  source_path: papers/paper_03_raw_ohlc_forecasting/src/features/raw_ohlc.py
+  source_sha256: b32df88643ec275a9906e7e9715125de42c7c602b05131d66d1533144220f5a4
+  columns:
+  - lagged_open_close_return
+  - lagged_close_close_return
+  - lagged_overnight_gap
+  - lagged_high_low_range
+  - lagged_rolling_volatility_5
+  - lagged_momentum_5
+  - lagged_downside_rate_5
+  - lagged_market_return
+  - lagged_market_breadth
+  prohibited:
+  - adj_close
+  - adjustment_factor
+  - volume_raw
+  - volume_valid
+  - dividend
+  - stock_split
+target:
+  name: next_session_open_to_close_direction
+  formula: I(close_raw[target_date] / open_raw[target_date] - 1 > 0)
+  prediction_timestamp: after close of prediction_date
+  target_date_rule: next valid same-security raw-OHLC observation within 14 calendar
+    days
+  pit_target_membership_required: true
+  zero_return_class: 0
+  missing_labels: rejected_not_zero
+temporal_split:
+  initial_training:
+    start: '2025-07-01'
+    end: '2025-10-31'
+  calibration:
+    start: '2025-11-01'
+    end: '2025-12-31'
+  final_test:
+    start: '2026-01-01'
+    end_exclusive: '2026-07-01'
+  training_window: EXPANDING
+  threshold: 0.5
+  final_endpoint_adjustment: last prediction date with a valid matured target; no
+    split boundary moved after final-test inspection
+model_registry:
+  historical_class_probability:
+    family: historical_class_probability
+    module: information_set_baseline
+    parameters:
+      history: matured_labels_before_prediction_date
+      fallback_probability: 0.5
+    stochastic: false
+  logistic_regression:
+    family: logistic_regression
+    module: papers.paper_03_raw_ohlc_forecasting.src.models.machine_learning.logistic_regression
+    parameters:
+      C: 1.0
+      max_iter: 500
+    stochastic: true
+    source_path: papers/paper_03_raw_ohlc_forecasting/src/models/machine_learning/logistic_regression.py
+    source_sha256: 8c5aea46ace2745732c3b0fa11915c87005595ca6b29a4b88f52814cb1f59ce6
+  random_forest:
+    family: random_forest
+    module: papers.paper_04_regime_transfer_reliability.src.models.machine_learning.random_forest
+    parameters:
+      n_estimators: 60
+      max_depth: 8
+      min_samples_leaf: 20
+      max_features: sqrt
+      max_samples: 0.8
+      class_weight: balanced_subsample
+      n_jobs: 1
+    stochastic: true
+    source_path: papers/paper_04_regime_transfer_reliability/src/models/machine_learning/random_forest.py
+    source_sha256: 6c878ff46d89eaaac9eb5fb00d269cbbe7494106698b5d2a2c4e8d2ea0e6c054
+  lightgbm:
+    family: lightgbm
+    module: papers.paper_03_raw_ohlc_forecasting.src.models.machine_learning.lightgbm
+    parameters:
+      n_estimators: 50
+      learning_rate: 0.04
+      num_leaves: 15
+      max_depth: 4
+      min_child_samples: 30
+      subsample: 0.9
+      colsample_bytree: 0.9
+      n_jobs: 1
+      verbosity: -1
+    stochastic: true
+    source_path: papers/paper_03_raw_ohlc_forecasting/src/models/machine_learning/lightgbm.py
+    source_sha256: fbbf47b714fca95f3708965b320bea52c36ad7d08d0417d8a66eee1da7c26c83
+execution:
+  seeds:
+  - 17
+  - 42
+  - 101
+  minimum_final_test_dates: 60
+  minimum_final_test_rows: 1000
+  minimum_class_count: 1
+  training_label_rule: target_date < prediction_date
+  feature_selection_final_test: false
+  hyperparameter_search: false
+  identity_as_feature: false
+inference:
+  primary:
+    method: moving_block_bootstrap_over_trading_dates
+    block_length: 20
+    samples: 500
+    seed: 1729
+  robustness_block_lengths:
+  - 10
+  - 40
+  confidence: 0.95
+  aggregation: equal_date
+  comparison_family: current_minus_pit_brier_by_model_and_comparison_arm
+  multiple_testing: Benjamini-Hochberg within block length
+package_versions:
+  python: 3.12.3
+  numpy: 1.26.4
+  pandas: 2.1.4
+  pyarrow: 15.0.2
+  scikit-learn: 1.5.2
+  scipy: 1.14.1
+  lightgbm: 4.6.0
+  PyYAML: 6.0.1

@@ -1,0 +1,59 @@
+experiment_id: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8_1_1
+experiment_version: v8.1.1
+release_status: FINAL_HARDENED_COMPLETE_FIVE_MARKET_INFERENCE_LABEL_PATCH
+release_kind: inference_reporting_label_patch
+immutable_parent_release:
+  experiment_id: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8_1
+  git_tag: pit-five-market-v8.1-final
+  git_commit: d9728f9fe99e20cd78e136aa677bc35908dc9025
+forecasting_changes:
+  inputs: false
+  memberships: false
+  features: false
+  folds: false
+  models: false
+  seeds: false
+  predictions: false
+  primary_point_estimates: false
+macro_scope_schema:
+  required_market_count: 5
+  predefined_markets:
+  - IDX30
+  - SET50
+  - VN30
+  - PSEI
+  - FBM_KLCI
+  scopes:
+  - FIVE_MARKET_MACRO
+  - AVAILABLE_MARKET_MACRO
+  - MARKET_LEVEL
+  five_market_validity_rule: valid only when all five predefined markets contribute
+  available_market_family_rule: always exploratory and BH-adjusted separately
+calibration_thresholds:
+  minimum_sample_size: 30
+  minimum_positive_count: 5
+  minimum_negative_count: 5
+  separation_abs_coefficient_threshold: 15.0
+  extreme_abs_coefficient_threshold: 25.0
+  aggregate_rule: any flagged date cell makes unqualified aggregate calibration inference
+    ineligible; coefficients are retained with warnings
+primary_inference:
+  support: FULL_SUPPORT
+  macro_scope: FIVE_MARKET_MACRO
+  metric: brier_score
+  block_length: 20
+  models:
+  - historical_class_probability
+  - lightgbm
+  - logistic_regression
+  - random_forest
+  conclusion: NO_SUPPORTED_DIFFERENCE_FOR_ALL_FOUR_MODELS
+robustness_inference:
+  block_length: 40
+  unavailable_market: IDX30
+  available_markets:
+  - SET50
+  - VN30
+  - PSEI
+  - FBM_KLCI
+  classification: EXPLORATORY

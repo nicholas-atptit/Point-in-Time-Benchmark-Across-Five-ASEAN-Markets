@@ -1,0 +1,12 @@
+﻿Element,Locked specification,Implementation
+Universe arms,POINT_IN_TIME; CURRENT_2026_APPLIED_BACKWARD; PIT_CURRENT_INTERSECTION_CONTROL,"Each arm is trained separately; exact common support is a diagnostic, not a retraining design."
+Target,Next-session open-to-close direction,target_close / target_open - 1; class 1 only when return > 0; maximum next-observation gap 14 calendar days.
+Features,Nine lagged raw-OHLC and same-market features,"Open-close, close-close, overnight gap, high-low range, 5-session volatility, momentum and downside rate, plus lagged market return and breadth."
+Models,Historical probability; logistic regression; random forest; LightGBM,"One information-set baseline, one regularized linear classifier, one bagged tree model, and one boosted tree model."
+Seeds,11; 23; 37; 53; 71,Every collapsed prediction contains exactly five seeds.
+Rolling origin,Continuous expanding same-market history,60 initial training dates; 20 calibration dates; 20 test dates; 20-date step; interval boundaries do not reset history.
+Validity gates,"At least 2 folds, 40 OOS dates and 800 OOS predictions",Both classes in train and test; matured labels; unique target keys; no overlap or leakage.
+Metrics,Primary Brier score; secondary log loss and balanced accuracy,Calibration is diagnostic subject to estimability gates; prediction coverage is operational.
+Aggregation,Security → date → interval → market → five-market macro,Equal weight at every stage; the primary macro gives each market equal weight.
+Inference,Paired moving-block bootstrap,"10,000 primary replications; seed 271828; block 20 confirmatory; blocks 10 and 40 exploratory; blocks confined to intervals."
+Multiplicity,Benjamini-Hochberg within declared families,Confirmatory family contains four full-support five-market block-20 Brier comparisons; CI and adjusted-p joint gate.

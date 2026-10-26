@@ -1,0 +1,7 @@
+Index,Evidence object,Source class,Status/constraint
+IDX30,Historical membership evidence,Official index-provider documents,Accepted under the locked evidence hierarchy
+SET50,Historical membership evidence,Stock Exchange of Thailand archive and methodology,Accepted under the locked evidence hierarchy
+VN30,Historical membership evidence,HOSE official exchange documents,Accepted under the locked evidence hierarchy
+PSEI,Historical membership evidence,Philippine Stock Exchange documents,Accepted with documented reconstruction limits
+FBM KLCI,Historical membership evidence,"FTSE Russell, LSEG and Bursa records with tiered anchors",PASS_WITH_DOCUMENTED_LIMITATIONS
+All markets,Raw price semantics,Provider-native raw OHLC from release-registered local and public-source lanes,"No adjusted close, volume dependency or imputation"

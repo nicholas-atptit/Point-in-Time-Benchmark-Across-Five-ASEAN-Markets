@@ -1,0 +1,4 @@
+# Licensing decision pending
+No repository-wide LICENSE is assigned in this release. Original study code and aggregate visualizations/statistics are published under the owner's express task instruction. The historical Git author is recorded as provenance, not treated as an independent copyright adjudication. Imported third-party libraries are dependencies installed separately; no vendor library binaries or source are bundled.
+
+No public raw-data, index-constituent-history or prediction-record redistribution permission was established. Those artifacts remain local. A future reuse license requires the applicable owners' decision; public visibility does not itself supply an open-source grant. No new public licensing choice was inferred from manuscript coauthorship or a dependency's software license.

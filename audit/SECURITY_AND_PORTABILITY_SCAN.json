@@ -1,0 +1,24 @@
+{
+  "python_files_checked": 40,
+  "syntax_errors": [],
+  "absolute_local_path_hits": [],
+  "reviewed_nonexecuting_path_examples": [
+    {
+      "path": "scripts/manifest_portability_v6.py",
+      "example": "/mnt/k/...",
+      "reason": "Historical error-description string only; no executable absolute workstation dependency; original bytes preserved"
+    },
+    {
+      "path": "scripts/point_in_time/pit_multimarket_analytics_v6.py",
+      "example": "/mnt/k/...",
+      "reason": "Historical error-description string only; no executable absolute workstation dependency; original bytes preserved"
+    }
+  ],
+  "credential_hits": [],
+  "personal_path_or_private_email_hits": [],
+  "files_over_10mb": [],
+  "forbidden_record_or_secret_formats": [],
+  "file_count": 144,
+  "total_bytes": 4444002,
+  "status": "PASS"
+}

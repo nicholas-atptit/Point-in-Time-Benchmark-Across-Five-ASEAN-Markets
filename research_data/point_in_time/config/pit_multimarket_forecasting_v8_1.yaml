@@ -1,0 +1,106 @@
+experiment_id: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8_1
+study_label: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8_1_HARDENED
+experiment_version: v8.1
+manifest_version: manifest-portability-v8.1.0
+release_status: FINAL_HARDENED_COMPLETE_FIVE_MARKET
+release_kind: hardening_release_reusing_checksum_validated_v8_predictions
+locked_parent_experiment: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8
+locked_parent_core_hashes:
+  v7_manifest: 9b30a42ec2c48d9395e6aba3a9b9af7c539346ebf39ad1050841a56d8eab11d1
+  v8_manifest: 14d5cd7ffc799d7faf1626d4dbddd2cdbc95382a5fdbc935c5fbcae5b24a8e70
+  v8_seed_predictions: 47b551ff4359aae68981507f12602ed6c5e903c16196b42308dddd0815c72dbb
+  v8_collapsed_predictions: c37aa8deb7339ad6c634d47c2c58a31df3cfd50f2def993e66dc72a1d41bb15d
+  v8_membership_intervals: e77675b53d9d8ec7b09295749a87815e805714d620760f21229576ac6d344369
+  v8_membership_daily: cd4c50fe4dbfe1e49e013a65c688c38186663cc154e4c7e4f52b592792fa72ca
+  v8_feature_panel: fc5b4e0e3c20442cfd291ee2ce2699fc580b3dc941d07a35db6ce415900afb3c
+  v8_configuration: 9c0e91f0887b399b22acc40f3fd3ac23e7939f2d47068211e8cef9a57f38480e
+forecasting_inputs_changed: false
+prediction_reuse_policy:
+  required:
+  - all V8 manifest checksums pass
+  - V7 immutability passes
+  - seed and collapsed keys are unique
+  - each collapsed prediction has exactly five seeds
+  - membership, price, feature, target, and model inputs unchanged
+  outcome: REUSE_AUTHORIZED
+support_inference:
+  primary: full-arm locked V8 comparison
+  diagnostic: exact common arm-native prediction-key support
+  control: separately trained PIT_CURRENT_INTERSECTION_CONTROL
+  common_support_retraining: false
+  arithmetic_component_is_causal: false
+  match_key:
+  - market
+  - index_id
+  - interval_id
+  - fold_id
+  - model_id
+  - security_id
+  - prediction_date
+  - target_date
+  - actual_class
+bootstrap:
+  primary_samples: 10000
+  secondary_samples: 5000
+  seed: 271828
+  primary_metric: brier_score
+  primary_block_length: 20
+  robustness_block_lengths:
+  - 10
+  - 40
+  paired_sampling: true
+  blocks_confined_to_interval: true
+  equal_market_primary: true
+  finite_sample_p_value: (extreme_count + 1) / (B + 1)
+multiple_testing_families:
+  confirmatory:
+    family_id: CONFIRMATORY_MACRO_BRIER_BLOCK20
+    support: FULL_SUPPORT
+    inference_level: selected_five_market_macro
+    metric: brier_score
+    block_length: 20
+    models:
+    - historical_class_probability
+    - lightgbm
+    - logistic_regression
+    - random_forest
+    hypothesis_count: 4
+    comparison: current minus PIT
+    adjustment: Benjamini-Hochberg
+  secondary_predictive: separate by support, inference level, metric, and block length
+  operational:
+    metric: prediction_coverage
+    narrative_separated_from_predictive_loss: true
+aggregation:
+  primary: equal_market_macro
+  secondary:
+  - equal_oos_date
+  - equal_interval
+  - security_date
+  - leave_one_market_out
+  - leave_one_interval_out
+  - exclude_intervals_lt_80_oos_dates
+  - exclude_5014_active_intervals
+malaysia_airports_5014:
+  recovery_status: UNRECOVERED_EXPLICIT_GAP
+  joined_active_member_days: 0
+  required_active_member_days: 493
+  eligibility_threshold_changed: false
+  sensitivity_specifications:
+  - A_LOCKED_PRIMARY
+  - B_EXCLUDE_5014_ALL_ARMS
+  - C_EXCLUDE_5014_ACTIVE_INTERVALS
+checkpoint_policy: REMOVE_AFTER_VALIDATED_INCORPORATION
+external_retrieval:
+  silent_download_allowed: false
+  explicit_flag: --allow-external-retrieval
+random_seeds:
+- 11
+- 23
+- 37
+- 53
+- 71
+paths:
+  release_manifest: research_data/point_in_time/manifests/pit_multimarket_forecasting_v8_1_release_manifest.json
+  release_envelope: research_data/point_in_time/manifests/pit_v8_1_release_envelope.json
+  environment_lock: research_data/point_in_time/config/environment_v8_1.json

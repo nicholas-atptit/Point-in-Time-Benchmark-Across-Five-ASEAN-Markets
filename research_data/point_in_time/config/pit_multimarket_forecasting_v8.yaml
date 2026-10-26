@@ -1,0 +1,189 @@
+experiment_id: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8
+study_label: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8
+experiment_version: v8
+pipeline_version: 8.0.0
+run_date: '2026-08-03'
+v6_reference:
+  experiment_id: SELECTED_ASEAN_PIT_PARTIAL_INTERVAL_BENCHMARK_V6
+  data_version: pit-data-v5
+  membership_version: pit-membership-v5
+  manifest_version: manifest-portability-v6.0.0
+  correction_policy: V6 immutable; changes require V6.1 or later
+data_version: pit-data-v8
+membership_version: pit-membership-v8
+manifest_version: manifest-portability-v8.0.0
+predefined_market_scope:
+- IDX30
+- SET50
+- VN30
+- PSEI
+- FBM_KLCI
+eligible_interval_ids:
+- ELG-1b3372182eb78ecc5e01f068
+- ELG-36af27305d66fc9518825631
+- ELG-80b1805e1091f49ef3c608e0
+- ELG-821ae0295fa8fe4b17a24bc4
+- ELG-a861b7c05b53a15494c96fba
+- ELG-b50b9c6485d40990a0607f6b
+- ELG7-0bb0264a64429796c5c6c70f
+- ELG7-380704bf10c4d98b0c67b211
+- ELG7-523e8e2a81c0c349a1efc7a2
+- ELG7-593f2f129bcc672fc91d2772
+- ELG7-6d335e3dbd34848330a8b1fb
+- ELG7-a3aae8b67b2560f0d28ad62b
+- ELG7-ab16ddeb3ccaec8cca81e74e
+- ELG7-e1d371d9371cff265fd5ee70
+- ELG7-f17c64759dad768fce5cbb58
+- FBMKLCI-V8-I01-2018-01-01
+- FBMKLCI-V8-I02-2018-06-18
+- FBMKLCI-V8-I03-2018-12-24
+- FBMKLCI-V8-I04-2020-06-22
+- FBMKLCI-V8-I05-2020-12-21
+- FBMKLCI-V8-I06-2021-06-21
+- FBMKLCI-V8-I07-2021-12-20
+- FBMKLCI-V8-I08-2022-12-19
+- FBMKLCI-V8-I09-2023-06-19
+- FBMKLCI-V8-I10-2023-12-18
+- FBMKLCI-V8-I11-2024-06-24
+- FBMKLCI-V8-I12-2024-12-23
+- FBMKLCI-V8-I13-2025-06-23
+eligible_intervals_by_market:
+  IDX30: 2
+  SET50: 2
+  VN30: 2
+  PSEI: 9
+  FBM_KLCI: 13
+universe_arms:
+  pit: POINT_IN_TIME
+  current: CURRENT_2026_APPLIED_BACKWARD
+  intersection: PIT_CURRENT_INTERSECTION_CONTROL
+target_definition:
+  name: next-session open-to-close direction
+  target_return: target_close / target_open - 1
+  direction: 1 if target_return > 0 else 0
+  next_observation: next valid same-security observation
+  maximum_calendar_gap_days: 14
+  adjusted_close_allowed: false
+  volume_allowed: false
+  imputation_allowed: false
+feature_registry_hash: b32df88643ec275a9906e7e9715125de42c7c602b05131d66d1533144220f5a4
+feature_version: raw_ohlc_registry_d16ba71d917fc1f9ce020345
+feature_columns:
+- lagged_open_close_return
+- lagged_close_close_return
+- lagged_overnight_gap
+- lagged_high_low_range
+- lagged_rolling_volatility_5
+- lagged_momentum_5
+- lagged_downside_rate_5
+- lagged_market_return
+- lagged_market_breadth
+feature_lookback: 5
+continuous_market_level_rolling_origin:
+  primary_market_pooling: false
+  training_history: all earlier valid observations in the same market and arm, including
+    prior membership intervals
+  evaluation: only intervals passing the unchanged data gate
+  initial_training_dates: 60
+  calibration_dates: 20
+  test_block_dates: 20
+  step_dates: 20
+  training_window: expanding
+  labels_must_mature_before_fit: true
+  test_blocks_strictly_out_of_sample: true
+minimum_validity_gates:
+  valid_folds_per_market_arm_model: 2
+  oos_trading_dates_per_market_arm_model: 40
+  oos_security_date_predictions_per_market_arm_model: 800
+  both_target_classes_train: true
+  both_target_classes_test: true
+model_registry:
+  historical_class_probability:
+    family: historical_class_probability
+    module: information_set_baseline
+    parameters:
+      history: matured_labels_before_calibration_start
+      fallback_probability: 0.5
+  logistic_regression:
+    family: logistic_regression
+    module: papers.paper_03_raw_ohlc_forecasting.src.models.machine_learning.logistic_regression
+    parameters:
+      C: 1.0
+      max_iter: 500
+  random_forest:
+    family: random_forest
+    module: papers.paper_04_regime_transfer_reliability.src.models.machine_learning.random_forest
+    parameters:
+      n_estimators: 60
+      max_depth: 8
+      min_samples_leaf: 20
+      max_features: sqrt
+      max_samples: 0.8
+      class_weight: balanced_subsample
+      n_jobs: 1
+  lightgbm:
+    family: lightgbm
+    module: papers.paper_03_raw_ohlc_forecasting.src.models.machine_learning.lightgbm
+    parameters:
+      n_estimators: 50
+      learning_rate: 0.04
+      num_leaves: 15
+      max_depth: 4
+      min_child_samples: 30
+      subsample: 0.9
+      colsample_bytree: 0.9
+      n_jobs: 1
+      verbosity: -1
+seeds:
+- 11
+- 23
+- 37
+- 53
+- 71
+primary_metric: brier_score
+secondary_metrics:
+- log_loss
+- balanced_accuracy
+- calibration_intercept
+- calibration_slope
+- prediction_coverage
+- model_rank
+aggregation_hierarchy:
+- equal-security mean within date
+- equal-date mean within evaluation interval
+- equal-interval mean within market
+- equal-market mean across model-valid markets
+bootstrap:
+  method: paired moving-block bootstrap
+  samples: 500
+  seed: 271828
+  primary_block_length: 20
+  robustness_block_lengths:
+  - 10
+  - 40
+multiple_testing: Benjamini-Hochberg across all valid current-minus-PIT comparisons
+  in each declared block-length family
+package_versions:
+  python: 3.13.5
+  numpy: 2.2.6
+  pandas: 2.3.3
+prohibited_claims:
+- manuscript
+- profitability
+- causal
+- trading
+snapshot_version: pit-universe-v8
+price_version: pit-data-v8
+v7_reference:
+  experiment_id: ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V7
+  status: PARTIAL_DATA_BLOCKED
+  manifest_version: manifest-portability-v7.0.0
+  manifest_records: 34
+  protocol_change: none
+v8_membership_resolution:
+  accepted_anchor_dates:
+  - '2017-12-31'
+  - '2019-12-23'
+  malaysia_chain_start: '2018-01-01'
+  malaysia_chain_end_exclusive: '2026-07-02'
+  current_arm_role: frozen deliberately biased V7 comparison arm; not membership evidence

@@ -1,0 +1,17 @@
+[
+  {
+    "file": "pit_historical_raw_ohlc_recovered_v8.parquet",
+    "storage_date_reversals": 0,
+    "interpretation": "Storage-order diagnostic; original computation explicitly sorts temporal inputs"
+  },
+  {
+    "file": "pit_multimarket_feature_panel_v8.parquet",
+    "storage_date_reversals": 2384,
+    "interpretation": "Storage-order diagnostic; original computation explicitly sorts temporal inputs"
+  },
+  {
+    "file": "pit_multimarket_predictions_seed_collapsed_v8.parquet",
+    "storage_date_reversals": 24368,
+    "interpretation": "Storage-order diagnostic; original computation explicitly sorts temporal inputs"
+  }
+]

@@ -1,0 +1,45 @@
+﻿family,specification,excluded_market,model_id,point_estimate_current_minus_pit,primary,Model
+Aggregation,PRIMARY_EQUAL_MARKET,,historical_class_probability,0.0001887166474588,True,Historical probability
+Aggregation,EQUAL_OOS_DATE,,historical_class_probability,0.0001344346337758,False,Historical probability
+Aggregation,EQUAL_INTERVAL,,historical_class_probability,0.0001116810418138,False,Historical probability
+Aggregation,EXCLUDE_INTERVALS_LT_80_OOS_DATES,,historical_class_probability,0.0002764824953341,False,Historical probability
+Aggregation,EXCLUDE_5014_ACTIVE_INTERVALS,,historical_class_probability,0.0002019603917407,False,Historical probability
+Aggregation,PRIMARY_EQUAL_MARKET,,lightgbm,-1.852927836398528e-05,True,LightGBM
+Aggregation,EQUAL_OOS_DATE,,lightgbm,-8.976750190420144e-05,False,LightGBM
+Aggregation,EQUAL_INTERVAL,,lightgbm,-6.148047397024584e-05,False,LightGBM
+Aggregation,EXCLUDE_INTERVALS_LT_80_OOS_DATES,,lightgbm,-6.700471953482068e-05,False,LightGBM
+Aggregation,EXCLUDE_5014_ACTIVE_INTERVALS,,lightgbm,1.496373568127436e-06,False,LightGBM
+Aggregation,PRIMARY_EQUAL_MARKET,,logistic_regression,-0.0001008883669288,True,Logistic regression
+Aggregation,EQUAL_OOS_DATE,,logistic_regression,3.965417948894591e-05,False,Logistic regression
+Aggregation,EQUAL_INTERVAL,,logistic_regression,-1.4397582417765116e-05,False,Logistic regression
+Aggregation,EXCLUDE_INTERVALS_LT_80_OOS_DATES,,logistic_regression,1.8739259371810597e-05,False,Logistic regression
+Aggregation,EXCLUDE_5014_ACTIVE_INTERVALS,,logistic_regression,-0.0001034773923291,False,Logistic regression
+Aggregation,PRIMARY_EQUAL_MARKET,,random_forest,-0.0005314393146661,True,Random forest
+Aggregation,EQUAL_OOS_DATE,,random_forest,-0.0002874155326558,False,Random forest
+Aggregation,EQUAL_INTERVAL,,random_forest,-0.0003264032394015,False,Random forest
+Aggregation,EXCLUDE_INTERVALS_LT_80_OOS_DATES,,random_forest,-0.0006638791138022,False,Random forest
+Aggregation,EXCLUDE_5014_ACTIVE_INTERVALS,,random_forest,-0.0005422429976439,False,Random forest
+Aggregation,SECURITY_DATE_WEIGHTING,,historical_class_probability,2.9075539313166976e-05,False,Historical probability
+Aggregation,SECURITY_DATE_WEIGHTING,,lightgbm,-0.0002121949345401,False,LightGBM
+Aggregation,SECURITY_DATE_WEIGHTING,,logistic_regression,-0.0001159134784524,False,Logistic regression
+Aggregation,SECURITY_DATE_WEIGHTING,,random_forest,-0.0003718427092525,False,Random forest
+Leave one market out,Exclude FBM_KLCI,FBM_KLCI,historical_class_probability,0.0002263729858152,False,Historical probability
+Leave one market out,Exclude FBM_KLCI,FBM_KLCI,lightgbm,3.872920447346403e-05,False,LightGBM
+Leave one market out,Exclude FBM_KLCI,FBM_KLCI,logistic_regression,-0.0001217320251126,False,Logistic regression
+Leave one market out,Exclude FBM_KLCI,FBM_KLCI,random_forest,-0.0005388432457891,False,Random forest
+Leave one market out,Exclude IDX30,IDX30,historical_class_probability,0.0001878902030386,False,Historical probability
+Leave one market out,Exclude IDX30,IDX30,lightgbm,0.0003522147797503,False,LightGBM
+Leave one market out,Exclude IDX30,IDX30,logistic_regression,-7.68138314642596e-05,False,Logistic regression
+Leave one market out,Exclude IDX30,IDX30,random_forest,-0.000437204555951,False,Random forest
+Leave one market out,Exclude PSEI,PSEI,historical_class_probability,0.0002065780071153,False,Historical probability
+Leave one market out,Exclude PSEI,PSEI,lightgbm,-6.555569864514506e-05,False,LightGBM
+Leave one market out,Exclude PSEI,PSEI,logistic_regression,-0.0001546248314366,False,Logistic regression
+Leave one market out,Exclude PSEI,PSEI,random_forest,-0.0007248406410232,False,Random forest
+Leave one market out,Exclude SET50,SET50,historical_class_probability,9.13017319817241e-05,False,Historical probability
+Leave one market out,Exclude SET50,SET50,lightgbm,-0.0003285034642768,False,LightGBM
+Leave one market out,Exclude SET50,SET50,logistic_regression,-0.0001461947275568,False,Logistic regression
+Leave one market out,Exclude SET50,SET50,random_forest,-0.0004576369788917,False,Random forest
+Leave one market out,Exclude VN30,VN30,historical_class_probability,0.0002314403093433,False,Historical probability
+Leave one market out,Exclude VN30,VN30,lightgbm,-8.95312131217993e-05,False,LightGBM
+Leave one market out,Exclude VN30,VN30,logistic_regression,-5.076419073666218e-06,False,Logistic regression
+Leave one market out,Exclude VN30,VN30,random_forest,-0.0004986711516757,False,Random forest

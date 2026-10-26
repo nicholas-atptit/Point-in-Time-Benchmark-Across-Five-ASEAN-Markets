@@ -1,0 +1,9 @@
+Field,Value
+Accepted anchor,2017-12-31
+Independent endpoint anchor,2019-12-23
+Anchor-to-anchor exact reconstructed set equality,True
+Unknown membership dates in evaluated windows,0
+No current-constituent backcast,True
+Tier 1 sources,22
+Tier 2 sources,5
+Tier 3 sources,2

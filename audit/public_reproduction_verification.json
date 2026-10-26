@@ -1,0 +1,105 @@
+{
+  "scope": "PUBLIC_AGGREGATE_FIGURE_TABLE_REPRODUCTION",
+  "model_training": false,
+  "checks": [
+    {
+      "artifact": "tables/table_01_market_scope.csv",
+      "rows": 5,
+      "status": "EXACT_MATCH",
+      "original_sha256": "36bac6cb63ccd3bc06f22d6252151f37b6738f59da08da3b8d3aee793374982c",
+      "regenerated_sha256": "36bac6cb63ccd3bc06f22d6252151f37b6738f59da08da3b8d3aee793374982c"
+    },
+    {
+      "artifact": "tables/table_02_protocol.csv",
+      "rows": 11,
+      "status": "EXACT_MATCH",
+      "original_sha256": "917fb39d2181b50804f1b659d47202633dc2f01eba52ada3f10d99d03a148798",
+      "regenerated_sha256": "917fb39d2181b50804f1b659d47202633dc2f01eba52ada3f10d99d03a148798"
+    },
+    {
+      "artifact": "tables/table_03_execution.csv",
+      "rows": 5,
+      "status": "EXACT_MATCH",
+      "original_sha256": "31316a0df24ed74b1c476d6d121ecf01756ec942c77213b3876e8da6182de87c",
+      "regenerated_sha256": "31316a0df24ed74b1c476d6d121ecf01756ec942c77213b3876e8da6182de87c"
+    },
+    {
+      "artifact": "tables/table_04_absolute_brier.csv",
+      "rows": 12,
+      "status": "EXACT_MATCH",
+      "original_sha256": "ff1e93f9b0efd13b7a70b9a1727a0244c0fbb11e9d678290805765312892f53e",
+      "regenerated_sha256": "ff1e93f9b0efd13b7a70b9a1727a0244c0fbb11e9d678290805765312892f53e"
+    },
+    {
+      "artifact": "tables/table_05_confirmatory_inference.csv",
+      "rows": 4,
+      "status": "EXACT_MATCH",
+      "original_sha256": "5107176bf228eb420427aabeb2cd7aa359201f29e7cb7ad8587d217018f0b9a0",
+      "regenerated_sha256": "5107176bf228eb420427aabeb2cd7aa359201f29e7cb7ad8587d217018f0b9a0"
+    },
+    {
+      "artifact": "tables/table_06_common_support.csv",
+      "rows": 4,
+      "status": "EXACT_MATCH",
+      "original_sha256": "f344554536fe79644482f96dffb84544cc8584166d9c8fe3afbfdbd631c83aea",
+      "regenerated_sha256": "f344554536fe79644482f96dffb84544cc8584166d9c8fe3afbfdbd631c83aea"
+    },
+    {
+      "artifact": "tables/table_07_prediction_coverage.csv",
+      "rows": 6,
+      "status": "EXACT_MATCH",
+      "original_sha256": "87fce447162ce16cac0402c66d0dee904dcdaaf435fb8ab2e7bbe052881874d7",
+      "regenerated_sha256": "87fce447162ce16cac0402c66d0dee904dcdaaf435fb8ab2e7bbe052881874d7"
+    },
+    {
+      "artifact": "tables/table_08_robustness.csv",
+      "rows": 21,
+      "status": "EXACT_MATCH",
+      "original_sha256": "d7dc264b30409956444b82a49cd3598a76c1fab92ba942f4da76c8136adf78b6",
+      "regenerated_sha256": "d7dc264b30409956444b82a49cd3598a76c1fab92ba942f4da76c8136adf78b6"
+    },
+    {
+      "artifact": "figures/figure_source_data/figure_01_research_design.csv",
+      "rows": 3,
+      "status": "EXACT_MATCH",
+      "original_sha256": "469bf1eafbc03a5c55d0c3f96054937b45d955f92c2f77bb78755cbb09fceda1",
+      "regenerated_sha256": "469bf1eafbc03a5c55d0c3f96054937b45d955f92c2f77bb78755cbb09fceda1"
+    },
+    {
+      "artifact": "figures/figure_source_data/figure_02_interval_timeline.csv",
+      "rows": 94,
+      "status": "EXACT_MATCH",
+      "original_sha256": "dacde30355058eb22d4f7f59b18fe585ed9a5762abe0a3ece2a6a02ea6af9ee3",
+      "regenerated_sha256": "dacde30355058eb22d4f7f59b18fe585ed9a5762abe0a3ece2a6a02ea6af9ee3"
+    },
+    {
+      "artifact": "figures/figure_source_data/figure_03_confirmatory_forest.csv",
+      "rows": 4,
+      "status": "EXACT_MATCH",
+      "original_sha256": "1e910fbb2b53792c571757754e0a5d6b88e64948818d6ab0a32365fb614cd901",
+      "regenerated_sha256": "1e910fbb2b53792c571757754e0a5d6b88e64948818d6ab0a32365fb614cd901"
+    },
+    {
+      "artifact": "figures/figure_source_data/figure_04_common_support.csv",
+      "rows": 4,
+      "status": "EXACT_MATCH",
+      "original_sha256": "45b446e6f99a3e21288e21f351c3eee82efdb9574f3e73910df2aac1209d7f6a",
+      "regenerated_sha256": "45b446e6f99a3e21288e21f351c3eee82efdb9574f3e73910df2aac1209d7f6a"
+    },
+    {
+      "artifact": "figures/figure_source_data/figure_05_market_model_heatmap.csv",
+      "rows": 20,
+      "status": "EXACT_MATCH",
+      "original_sha256": "0e8b05600eba59bd7216f6313426a51a5cf761ad4a062237162319e501080a28",
+      "regenerated_sha256": "0e8b05600eba59bd7216f6313426a51a5cf761ad4a062237162319e501080a28"
+    },
+    {
+      "artifact": "figures/figure_source_data/figure_06_robustness.csv",
+      "rows": 44,
+      "status": "EXACT_MATCH",
+      "original_sha256": "70b356655c98b698a6e1d16d00d5795d90d021f7b0c9691602f2dd6d4aed89c6",
+      "regenerated_sha256": "70b356655c98b698a6e1d16d00d5795d90d021f7b0c9691602f2dd6d4aed89c6"
+    }
+  ],
+  "status": "PASS"
+}

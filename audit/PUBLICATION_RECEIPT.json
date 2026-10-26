@@ -1,0 +1,13 @@
+{
+  "publication_status": "BLOCKED_BY_PUBLICATION_AUTHORIZATION",
+  "remote_url": "https://github.com/nicholas-atptit/Point-in-Time-Benchmark-Across-Five-ASEAN-Markets",
+  "intended_branch": "main",
+  "remote_commit_sha": null,
+  "remote_mutation_confirmed": false,
+  "rejected_action": "Create initial public README.md commit through the GitHub connector",
+  "automatic_review_reason": "Direct chat request authorized reading the goal file; public publication requires explicit user confirmation",
+  "alternate_publication_route_attempted": false,
+  "license_assigned": false,
+  "data_records_included": false,
+  "manifest_exclusion": "This transaction receipt is excluded from the content manifest to avoid circular publication metadata"
+}

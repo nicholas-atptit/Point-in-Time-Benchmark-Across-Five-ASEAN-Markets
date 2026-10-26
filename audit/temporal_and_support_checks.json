@@ -1,0 +1,9 @@
+{
+  "training_end_before_prediction_date": 0,
+  "label_maturity_cutoff_before_prediction_date": 0,
+  "prediction_date_before_target_date": 0,
+  "nonfinite_probabilities": 0,
+  "out_of_range_probabilities": 0,
+  "collapsed_seed_count_not_five": 0,
+  "exact_common_support_pairs": 343792
+}

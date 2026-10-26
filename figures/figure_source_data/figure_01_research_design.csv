@@ -1,0 +1,4 @@
+﻿arm,label,membership_rule,training,role
+POINT_IN_TIME,Historical PIT membership,Membership effective on each historical date,Separately trained within same market and arm,Primary reference arm
+CURRENT_2026_APPLIED_BACKWARD,Current-2026 membership applied backward,Future 2026 roster determines historical security set,Separately trained within same market and arm,Primary comparison arm
+PIT_CURRENT_INTERSECTION_CONTROL,PIT-current intersection control,Historical PIT set intersected with current roster,Separately trained within same market and arm,Control arm

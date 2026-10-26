@@ -1,0 +1,1 @@
+"""Reusable, paper-neutral infrastructure."""

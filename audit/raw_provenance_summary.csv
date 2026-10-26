@@ -1,0 +1,16 @@
+market,provider,price_semantics,rows,securities,tickers,date_min,date_max,retrieval_timestamp_min,retrieval_timestamp_max
+Indonesia,local_asean_eod_open_source,RAW_OHLC,12331,30,30,2021-01-04,2026-07-01,2026-08-02,2026-08-02
+Indonesia,local_existing,RAW_OHLC,48662,19,19,2016-01-04,2026-05-29,2026-08-02 04:23:44+00:00,2026-08-02 04:28:28+00:00
+Indonesia,local_yahoo_daily_cache,RAW_OHLC,7555,6,6,2016-01-04,2020-12-30,2026-08-02,2026-08-02
+Indonesia,yahoo,RAW_OHLC,230,10,10,2019-07-02,2019-08-01,2026-08-02 04:23:47+00:00,2026-08-02 04:28:30+00:00
+Malaysia,local_asean_eod_open_source,RAW_OHLC,32345,30,30,2022-01-03,2026-07-01,2026-08-02,2026-08-02
+Malaysia,local_yahoo_daily_cache,RAW_OHLC,41352,29,29,2016-01-04,2021-12-31,2026-08-02,2026-08-02
+Malaysia,yahoo_query2_chart,RAW_OHLC,25492,12,12,2017-11-01,2026-07-01,2026-08-02T21:54:24.158875+00:00,2026-08-02T21:54:31.092897+00:00
+Philippines,local_asean_eod_open_source,RAW_OHLC,39967,30,30,2021-01-04,2026-07-01,2026-08-02,2026-08-02
+Philippines,repository_carlo01092_investagrams_archive,RAW_OHLC,191226,39,39,1985-01-03,2021-03-12,repository_archive_pre_v7,repository_archive_pre_v7
+Thailand,local_asean_eod_open_source,RAW_OHLC,92,50,50,2026-06-02,2026-07-01,2026-08-02,2026-08-02
+Thailand,local_existing,RAW_OHLC,113679,50,50,2016-01-04,2026-06-01,2026-08-02 04:23:41+00:00,2026-08-02 04:28:44+00:00
+Thailand,yahoo,RAW_OHLC,19496,81,81,2015-12-02,2026-06-30,2026-08-02 04:23:41+00:00,2026-08-02 04:28:46+00:00
+Vietnam,local_vnstock,RAW_OHLC,35660,14,14,2016-01-04,2026-06-01,2026-08-02 04:23:38+00:00,2026-08-02 04:28:47+00:00
+Vietnam,local_vnstock_daily_cache,RAW_OHLC,32693,16,16,2016-01-05,2026-06-01,2026-08-02,2026-08-02
+Vietnam,yahoo,RAW_OHLC,3642,31,31,2016-06-27,2017-07-24,2026-08-02 04:23:38+00:00,2026-08-02 04:28:52+00:00

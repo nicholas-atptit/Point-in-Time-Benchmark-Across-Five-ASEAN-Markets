@@ -1,0 +1,19 @@
+{
+  "configuration_path": "research_data/point_in_time/config/pit_multimarket_forecasting_v8_1_1.yaml",
+  "configuration_sha256": "4d411bc23a771fbe2f2cc5f1d1a816ee2d130ff6dc843dfed54c8e8aa687a681",
+  "creation_timestamp": "2026-08-03T01:29:15.529874+00:00",
+  "experiment_id": "ASEAN_FIVE_MARKET_PIT_CONTINUOUS_ROLLING_BENCHMARK_V8_1_1",
+  "experiment_version": "v8.1.1",
+  "git_commit_hash": "c6778cc0801678d7b69bca1aff2dfe26cb2eae5f",
+  "git_commit_role": "V8.1.1_CONTENT_COMMIT_AUTHENTICATED_BY_ENVELOPE",
+  "git_tag": "pit-five-market-v8.1.1-final",
+  "release_manifest_path": "research_data/point_in_time/manifests/pit_multimarket_forecasting_v8_1_1_release_manifest.json",
+  "release_manifest_sha256": "4e94297e1b65a3f7205234c8c99ddb8a45267adf68f49157e865386d7b5b8bb7",
+  "release_status": "FINAL_HARDENED_COMPLETE_FIVE_MARKET_INFERENCE_LABEL_PATCH",
+  "self_reference_policy": "envelope is excluded from the manifest it authenticates",
+  "total_release_bytes": 199895319,
+  "total_release_files": 195,
+  "validation_report_path": "research_data/point_in_time/qa/pit_v8_1_1_artifact_validation.json",
+  "validation_report_sha256": "7675d6d181090b32d78c282c8e24fb95ecdcefc9753f8c799bf939b0f346b7c2",
+  "validation_status": "PASS"
+}

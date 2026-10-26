@@ -1,0 +1,6 @@
+Market,Index,Membership history start,History end (exclusive),PIT intervals,Ready intervals,Valid folds,OOS dates,Collapsed predictions,Valid arm-model cells,Invalid cells
+Indonesia,IDX30,2019-05-02,2026-07-01,26,2,4,79,28120,12,0
+Thailand,SET50,2017-01-01,2026-07-01,12,2,12,240,141120,12,0
+Vietnam,VN30,2016-01-25,2026-07-01,21,2,9,180,63840,12,0
+Philippines,PSEI,2017-03-13,2026-07-01,22,9,45,900,270900,12,0
+Malaysia,FBM_KLCI,2018-01-01,2026-07-02,13,13,95,1900,635216,12,0

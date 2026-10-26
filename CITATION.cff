@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Cite this supporting-artifact repository at the exact commit used, together with the manuscript title."
+type: software
+title: "Supporting artifacts: Do Current-Constituent Universes Distort Equity Forecasting Evidence? A Point-in-Time Benchmark Across Five ASEAN Markets"
+authors:
+  - family-names: "Lương"
+    given-names: "Minh Quân"
+  - family-names: "Nguyễn"
+    given-names: "Nguyệt Hà"
+repository-code: "https://github.com/nicholas-atptit/Point-in-Time-Benchmark-Across-Five-ASEAN-Markets"
+version: "v8.1.1-audit-20261026"
+date-released: "2026-10-26"

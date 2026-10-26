@@ -1,0 +1,5 @@
+Claim ID,Evidence class,Claim,Status
+C01,Confirmatory,No supported five-market block-20 Brier difference for any model,SUPPORTED
+C02,Operational,Current arm has about 3.45 percentage points lower macro coverage,SUPPORTED
+C03,Diagnostic,Support and composition affect some numerical comparisons,DESCRIPTIVE_ONLY
+C04,Exploratory,Historical-probability result is sensitive to block length and market availability,EXPLORATORY
