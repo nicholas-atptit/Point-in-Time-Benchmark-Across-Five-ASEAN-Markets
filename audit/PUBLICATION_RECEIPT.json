@@ -1,5 +1,5 @@
 {
-  "publication_status": "BLOCKED_BY_PUBLICATION_AUTHORIZATION",
+  "publication_status": "USER_AUTHORIZED_PENDING_AUTHENTICATED_PUSH",
   "remote_url": "https://github.com/nicholas-atptit/Point-in-Time-Benchmark-Across-Five-ASEAN-Markets",
   "intended_branch": "main",
   "remote_commit_sha": null,
@@ -9,5 +9,7 @@
   "alternate_publication_route_attempted": false,
   "license_assigned": false,
   "data_records_included": false,
-  "manifest_exclusion": "This transaction receipt is excluded from the content manifest to avoid circular publication metadata"
+  "manifest_exclusion": "This transaction receipt is excluded from the content manifest to avoid circular publication metadata",
+  "explicit_user_approval": "Publish the prepared subset",
+  "connector_result": "HTTP 403 Resource not accessible by integration"
 }
