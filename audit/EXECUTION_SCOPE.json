@@ -11,5 +11,8 @@
   "full_training_rerun": false,
   "independent_preregistration_verified": false,
   "raw_data_published": false,
-  "license_assigned": false
+  "license_assigned": false,
+  "publication_status": "PUBLISHED_PERMITTED_SUBSET",
+  "public_tests_passed": 8,
+  "public_tests_failed": 0
 }
